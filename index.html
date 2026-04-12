@@ -6,17 +6,17 @@
   <title>유주현♡ 갠방 시그 목록</title>
   <style>
     :root{
-      /* 밤하늘 테마 변수 */
-      --bg-dark: #0b0e14;
-      --nav-blue: #1a2a6c;
-      --deep-purple: #2a0845;
-      --card-glass: rgba(255, 255, 255, 0.07);
-      --line-glass: rgba(255, 255, 255, 0.12);
-      --text-main: #e2e8f0;
-      --text-muted: #94a3b8;
-      --accent-star: #fef3c7; /* 별빛 색상 */
-      --accent-glow: #38bdf8; /* 네온 블루 포인트 */
-      --shadow: 0 14px 40px rgba(0, 0, 0, 0.5);
+      /* 연보라 밤하늘 테마 변수 */
+      --bg-dark: #1a1625;
+      --deep-purple: #2d1b4d;
+      --lavender-main: #b39ddb;
+      --lavender-light: #e1bee7;
+      --card-glass: rgba(255, 255, 255, 0.05);
+      --line-glass: rgba(255, 255, 255, 0.15);
+      --text-main: #f3e5f5;
+      --text-muted: #b39ddb;
+      --accent-glow: #ce93d8;
+      --shadow: 0 14px 40px rgba(0, 0, 0, 0.4);
       --radius: 20px;
     }
 
@@ -25,8 +25,8 @@
       margin:0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, "Noto Sans KR", sans-serif;
       color: var(--text-main);
-      /* 밤하늘 그라데이션 배경 */
-      background: linear-gradient(135deg, #0b0e14 0%, #1a2a6c 50%, #2a0845 100%);
+      /* 보랏빛 밤하늘 그라데이션 */
+      background: linear-gradient(135deg, #1a1625 0%, #2d1b4d 45%, #4a148c 100%);
       background-attachment: fixed;
       min-height: 100vh;
       padding: 48px 16px;
@@ -34,19 +34,19 @@
       overflow-x: hidden;
     }
 
-    /* 배경 별빛 효과 (가상 요소) */
+    /* 보랏빛 별빛 효과 */
     body::before {
       content: "";
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
       background-image: 
-        radial-gradient(1px 1px at 20px 30px, #fff, rgba(0,0,0,0)),
-        radial-gradient(1.5px 1.5px at 100px 150px, #fff, rgba(0,0,0,0)),
-        radial-gradient(1px 1px at 250px 350px, rgba(255,255,255,0.8), rgba(0,0,0,0)),
-        radial-gradient(2px 2px at 450px 100px, #fff, rgba(0,0,0,0));
+        radial-gradient(1px 1px at 40px 60px, #fff, rgba(0,0,0,0)),
+        radial-gradient(1.2px 1.2px at 150px 200px, #e1bee7, rgba(0,0,0,0)),
+        radial-gradient(1.5px 1.5px at 300px 400px, #fff, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 500px 150px, #ce93d8, rgba(0,0,0,0));
       background-repeat: repeat;
-      background-size: 600px 600px;
-      opacity: 0.3;
+      background-size: 500px 500px;
+      opacity: 0.4;
       z-index: -1;
     }
 
@@ -58,8 +58,8 @@
 
     .card{
       background: var(--card-glass);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
       border: 1px solid var(--line-glass);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
@@ -85,7 +85,7 @@
       display:block;
       border-radius: 14px;
       border: 1px solid var(--line-glass);
-      background: rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.05);
     }
 
     h1{
@@ -94,7 +94,7 @@
       letter-spacing: -0.5px;
       color: #fff;
       line-height: 1.25;
-      text-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+      text-shadow: 0 0 12px rgba(179, 157, 219, 0.6);
     }
 
     .sub{
@@ -119,13 +119,13 @@
       outline: none;
       font-size: 15px;
       color: #fff;
-      background: rgba(0, 0, 0, 0.2);
+      background: rgba(0, 0, 0, 0.25);
       transition: 0.2s ease;
     }
 
     .search input:focus{
       border-color: var(--accent-glow);
-      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.15);
+      box-shadow: 0 0 0 4px rgba(206, 147, 216, 0.2);
       background: rgba(0, 0, 0, 0.4);
     }
 
@@ -136,7 +136,7 @@
       transform: translateY(-50%);
       width: 20px;
       height: 20px;
-      color: var(--accent-glow);
+      color: var(--lavender-main);
       pointer-events:none;
     }
 
@@ -179,7 +179,7 @@
       position: sticky;
       top: 0;
       z-index: 2;
-      background: rgba(26, 42, 108, 0.9);
+      background: rgba(74, 20, 140, 0.85);
       color: #fff;
       text-align: left;
       padding: 14px 16px;
@@ -198,12 +198,12 @@
     }
 
     tbody tr:hover td{
-      background: rgba(56, 189, 248, 0.08);
+      background: rgba(225, 190, 231, 0.08);
     }
 
     td.num{
       width: 100px;
-      color: var(--accent-glow);
+      color: var(--lavender-light);
       font-weight: 700;
       font-variant-numeric: tabular-nums;
     }
@@ -224,16 +224,16 @@
       gap:8px;
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.2);
-      color: var(--accent-glow);
+      background: rgba(179, 157, 219, 0.15);
+      border: 1px solid rgba(179, 157, 219, 0.3);
+      color: #d1c4e9;
       font-size: 12.5px;
       font-weight: 600;
     }
 
     .table-scroll::-webkit-scrollbar{ width: 8px; height: 8px; }
     .table-scroll::-webkit-scrollbar-thumb{
-      background: var(--line-glass);
+      background: rgba(179, 157, 219, 0.3);
       border-radius: 999px;
     }
     .table-scroll::-webkit-scrollbar-track{ background: transparent; }
@@ -251,8 +251,7 @@
         <div class="brand">
           <img src="https://ogq-sticker-global-cdn-z01.sooplive.com/sticker/625b46120687f/5_240.png" alt="로고" />
           <div>
-            <h1>유주현♡ 시그 목록 (Midnight) ✨</h1>
-            <p class="sub">신비로운 밤하늘 테마로 목록이 업데이트 되었습니다.</p>
+            <h1>유주현♡ 시그 목록💜</h1>
           </div>
         </div>
 
@@ -262,7 +261,7 @@
               <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="1.8"/>
               <path d="M16.2 16.2 21 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
             </svg>
-            <input type="text" id="searchInput" placeholder="시그 번호 또는 제목으로 검색..." autocomplete="off" />
+            <input type="text" id="searchInput" placeholder="번호 또는 제목 검색..." autocomplete="off" />
           </div>
         </div>
       </div>
@@ -270,7 +269,7 @@
       <div class="content">
         <div class="meta">
           <span id="countText" class="badge">총 0개의 항목</span>
-          <span>Tip: 별빛처럼 빛나는 시그를 찾아보세요!</span>
+          <span>보랏빛 꿈처럼 빛나는 시그를 확인해 보세요.</span>
         </div>
 
         <div class="table-wrap">
@@ -421,8 +420,8 @@
       </div>
 
       <div class="footer">
-        <span>© 유주현♡ 🌌</span>
-        <span>Dreamy Midnight Collection</span>
+        <span>© 유주현♡ ⚛️</span>
+        <span>Dreamy Lavender Sky Collection</span>
       </div>
     </div>
   </div>
