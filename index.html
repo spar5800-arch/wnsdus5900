@@ -3,20 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>유주현♡ 갠방 시그 목록</title>
+  <title>유주현♡ 시그 목록</title>
   <style>
     :root{
-      /* 연보라 밤하늘 테마 변수 */
-      --bg-dark: #1a1625;
-      --deep-purple: #2d1b4d;
-      --lavender-main: #b39ddb;
-      --lavender-light: #e1bee7;
-      --card-glass: rgba(255, 255, 255, 0.05);
-      --line-glass: rgba(255, 255, 255, 0.15);
-      --text-main: #f3e5f5;
-      --text-muted: #b39ddb;
-      --accent-glow: #ce93d8;
-      --shadow: 0 14px 40px rgba(0, 0, 0, 0.4);
+      /* 여캠용 화사한 파스텔 테마 변수 */
+      --bg-body: #fff5f8; /* 아주 연한 핑크빛 화이트 배경 */
+      --primary-pastel: #ffdde1; /* 헤더 그라데이션 시작 */
+      --secondary-pastel: #ee9ca7; /* 헤더 그라데이션 끝 */
+      --card-bg: #ffffff; /* 카드 배경은 순백색으로 가독성 확보 */
+      --text-main: #4a4a4a; /* 글자색은 진한 회색으로 눈을 편안하게 */
+      --text-dark: #2c3e50; /* 강조 글자색 */
+      --point-color: #ff8a80; /* 포인트 리액션 색상 */
+      --line-color: #f1f1f1; /* 깔끔한 구분선 */
+      --shadow: 0 10px 30px rgba(238, 156, 167, 0.15); /* 부드러운 핑크빛 그림자 */
       --radius: 20px;
     }
 
@@ -25,86 +24,66 @@
       margin:0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, "Noto Sans KR", sans-serif;
       color: var(--text-main);
-      /* 보랏빛 밤하늘 그라데이션 */
-      background: linear-gradient(135deg, #1a1625 0%, #2d1b4d 45%, #4a148c 100%);
-      background-attachment: fixed;
+      background-color: var(--bg-body);
       min-height: 100vh;
-      padding: 48px 16px;
-      position: relative;
-      overflow-x: hidden;
-    }
-
-    /* 보랏빛 별빛 효과 */
-    body::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background-image: 
-        radial-gradient(1px 1px at 40px 60px, #fff, rgba(0,0,0,0)),
-        radial-gradient(1.2px 1.2px at 150px 200px, #e1bee7, rgba(0,0,0,0)),
-        radial-gradient(1.5px 1.5px at 300px 400px, #fff, rgba(0,0,0,0)),
-        radial-gradient(1px 1px at 500px 150px, #ce93d8, rgba(0,0,0,0));
-      background-repeat: repeat;
-      background-size: 500px 500px;
-      opacity: 0.4;
-      z-index: -1;
+      padding: 40px 16px;
     }
 
     .wrap{
-      max-width: 860px;
+      max-width: 800px; /* 가독성을 위해 폭을 조금 줄임 */
       margin: 0 auto;
-      position: relative;
     }
 
     .card{
-      background: var(--card-glass);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      border: 1px solid var(--line-glass);
+      background: var(--card-bg);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       overflow: hidden;
+      border: 1px solid rgba(238, 156, 167, 0.1);
     }
 
     .header{
-      padding: 26px 26px 18px;
-      border-bottom: 1px solid var(--line-glass);
-      display: grid;
-      gap: 12px;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap: 16px;
+      padding: 30px;
+      /* 상단에만 은은한 파스텔 그라데이션 포인트 */
+      background: linear-gradient(135deg, var(--primary-pastel) 0%, #ffffff 100%);
+      border-bottom: 1px solid var(--line-color);
+      display: flex;
+      align-items: center;
+      gap: 20px;
     }
 
     .brand img{
-      width: 120px;
-      height: auto;
+      width: 100px;
+      height: 100px;
       display:block;
-      border-radius: 14px;
-      border: 1px solid var(--line-glass);
-      background: rgba(255,255,255,0.05);
+      border-radius: 50%; /* 동그란 프로필 느낌 */
+      border: 4px solid #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      object-fit: cover;
     }
 
-    h1{
+    .header-text h1{
       margin: 0;
-      font-size: 24px;
-      letter-spacing: -0.5px;
-      color: #fff;
-      line-height: 1.25;
-      text-shadow: 0 0 12px rgba(179, 157, 219, 0.6);
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--text-dark);
+      letter-spacing: -1px;
+    }
+
+    .header-text h1 span {
+      color: var(--point-color); /* 하트 색상 포인트 */
     }
 
     .sub{
-      margin: 6px 0 0;
-      font-size: 13.5px;
-      color: var(--text-muted);
+      margin: 8px 0 0;
+      font-size: 14px;
+      color: #888;
+      font-weight: 400;
     }
 
     .toolbar{
-      margin-top: 10px;
+      padding: 20px 30px;
+      background-color: #fff;
     }
 
     .search{
@@ -113,134 +92,136 @@
 
     .search input{
       width: 100%;
-      padding: 14px 14px 14px 44px;
-      border-radius: 16px;
-      border: 1px solid var(--line-glass);
+      padding: 12px 12px 12px 40px;
+      border-radius: 12px;
+      border: 1px solid #e0e0e0;
       outline: none;
-      font-size: 15px;
-      color: #fff;
-      background: rgba(0, 0, 0, 0.25);
-      transition: 0.2s ease;
+      font-size: 14px;
+      color: var(--text-main);
+      background-color: #f9f9f9;
+      transition: all 0.2s ease;
     }
 
     .search input:focus{
-      border-color: var(--accent-glow);
-      box-shadow: 0 0 0 4px rgba(206, 147, 216, 0.2);
-      background: rgba(0, 0, 0, 0.4);
+      border-color: var(--secondary-pastel);
+      background-color: #fff;
+      box-shadow: 0 0 0 3px rgba(238, 156, 167, 0.1);
     }
 
     .search svg{
       position:absolute;
-      left: 14px;
+      left: 12px;
       top: 50%;
       transform: translateY(-50%);
-      width: 20px;
-      height: 20px;
-      color: var(--lavender-main);
+      width: 18px;
+      height: 18px;
+      color: #b0b0b0;
       pointer-events:none;
     }
 
     .content{
-      padding: 20px 26px 26px;
+      padding: 0 30px 30px;
       display:grid;
-      gap: 14px;
+      gap: 15px;
     }
 
     .meta{
       display:flex;
       align-items:center;
       justify-content: space-between;
-      gap: 10px;
-      flex-wrap: wrap;
-      color: var(--text-muted);
+      color: #666;
       font-size: 13px;
+      padding-top: 10px;
     }
 
     .table-wrap{
-      border: 1px solid var(--line-glass);
-      border-radius: 18px;
+      border: 1px solid var(--line-color);
+      border-radius: 15px;
       overflow: hidden;
-      background: rgba(0, 0, 0, 0.2);
     }
 
     .table-scroll{
-      max-height: 550px;
+      max-height: 500px;
       overflow: auto;
     }
 
     table{
       width: 100%;
-      border-collapse: separate;
-      border-spacing: 0;
-      font-size: 14.5px;
+      border-collapse: collapse;
+      font-size: 14px;
     }
 
     thead th{
       position: sticky;
       top: 0;
       z-index: 2;
-      background: rgba(74, 20, 140, 0.85);
-      color: #fff;
+      background-color: #fcfcfc;
+      color: var(--text-dark);
       text-align: left;
-      padding: 14px 16px;
-      border-bottom: 1px solid var(--line-glass);
-      font-weight: 700;
+      padding: 12px 15px;
+      border-bottom: 2px solid var(--line-color);
+      font-weight: 600;
     }
 
     tbody td{
-      padding: 12px 16px;
-      border-bottom: 1px solid var(--line-glass);
+      padding: 10px 15px;
+      border-bottom: 1px solid var(--line-color);
       color: var(--text-main);
     }
 
-    tbody tr:nth-child(even) td{
-      background: rgba(255, 255, 255, 0.02);
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    tbody tr:nth-child(even){
+      background-color: #fbfbfb; /* 아주 옅은 줄무늬 */
     }
 
     tbody tr:hover td{
-      background: rgba(225, 190, 231, 0.08);
+      background-color: rgba(238, 156, 167, 0.05); /* 마우스 올렸을 때 핑크빛 */
     }
 
     td.num{
-      width: 100px;
-      color: var(--lavender-light);
+      width: 80px;
+      color: var(--secondary-pastel);
       font-weight: 700;
       font-variant-numeric: tabular-nums;
     }
 
     .footer{
-      padding: 16px 26px;
-      border-top: 1px solid var(--line-glass);
-      background: rgba(0, 0, 0, 0.2);
-      color: var(--text-muted);
-      font-size: 12.5px;
-      display:flex;
-      justify-content: space-between;
+      padding: 15px 30px;
+      border-top: 1px solid var(--line-color);
+      background-color: #fcfcfc;
+      color: #aaa;
+      font-size: 12px;
+      text-align: center;
     }
 
     .badge{
       display:inline-flex;
       align-items:center;
-      gap:8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(179, 157, 219, 0.15);
-      border: 1px solid rgba(179, 157, 219, 0.3);
-      color: #d1c4e9;
-      font-size: 12.5px;
+      padding: 5px 10px;
+      border-radius: 20px;
+      background-color: rgba(238, 156, 167, 0.1);
+      color: var(--secondary-pastel);
+      font-size: 12px;
       font-weight: 600;
     }
 
-    .table-scroll::-webkit-scrollbar{ width: 8px; height: 8px; }
+    /* 스크롤바 디자인 */
+    .table-scroll::-webkit-scrollbar{ width: 6px; }
     .table-scroll::-webkit-scrollbar-thumb{
-      background: rgba(179, 157, 219, 0.3);
-      border-radius: 999px;
+      background: rgba(0,0,0,0.1);
+      border-radius: 3px;
     }
     .table-scroll::-webkit-scrollbar-track{ background: transparent; }
 
-    @media (max-width: 520px){
-      .brand img{ width: 90px; }
-      td.num{ width: 80px; }
+    @media (max-width: 600px){
+      .header { flex-direction: column; text-align: center; padding: 20px; }
+      .brand img { width: 80px; height: 80px; }
+      .header-text h1 { font-size: 22px; }
+      .content { padding: 0 15px 20px; }
+      .toolbar { padding: 15px; }
     }
   </style>
 </head>
@@ -249,27 +230,27 @@
     <div class="card">
       <div class="header">
         <div class="brand">
-          <img src="https://ogq-sticker-global-cdn-z01.sooplive.com/sticker/625b46120687f/5_240.png" alt="로고" />
-          <div>
-            <h1>유주현♡ 시그 목록💜</h1>
-          </div>
+          <img src="https://ogq-sticker-global-cdn-z01.sooplive.com/sticker/625b46120687f/5_240.png" alt="유주현♡" />
         </div>
+        <div class="header-text">
+          <h1>유주현<span>♡</span> 시그니처 리액션</h1>
+        </div>
+      </div>
 
-        <div class="toolbar">
-          <div class="search">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="1.8"/>
-              <path d="M16.2 16.2 21 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-            </svg>
-            <input type="text" id="searchInput" placeholder="번호 또는 제목 검색..." autocomplete="off" />
-          </div>
+      <div class="toolbar">
+        <div class="search">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M16.2 16.2 21 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <input type="text" id="searchInput" placeholder="원하는 리액션 검색..." autocomplete="off" />
         </div>
       </div>
 
       <div class="content">
         <div class="meta">
-          <span id="countText" class="badge">총 0개의 항목</span>
-          <span>보랏빛 꿈처럼 빛나는 시그를 확인해 보세요.</span>
+          <span id="countText" class="badge">총 112개의 리액션</span>
+          <span>찾으시는 개수를 입력하면 빨라요!</span>
         </div>
 
         <div class="table-wrap">
@@ -277,8 +258,8 @@
             <table id="songTable">
               <thead>
                 <tr>
-                  <th>번호</th>
-                  <th>제목</th>
+                  <th>두산</th>
+                  <th>리액션 / 미션</th>
                 </tr>
               </thead>
               <tbody>
@@ -420,8 +401,7 @@
       </div>
 
       <div class="footer">
-        <span>© 유주현♡ ⚛️</span>
-        <span>Dreamy Lavender Sky Collection</span>
+        <span>© 유주현♡ 💖 Always Lovely</span>
       </div>
     </div>
   </div>
@@ -432,17 +412,17 @@
     const rows = table.getElementsByTagName('tr');
     const countText = document.getElementById('countText');
 
-    function setCount(total, visible, keyword) {
-      if (!keyword) {
-        countText.textContent = `총 ${total}개의 항목`;
-      } else {
-        countText.textContent = `검색 결과 ${visible}개 / 총 ${total}개`;
-      }
+    // 초기 개수 설정
+    function updateCount() {
+        const totalRows = rows.length - 1; // head 제외
+        countText.textContent = `총 ${totalRows}개의 리액션`;
     }
+    updateCount();
 
     function filterSongs() {
       const keyword = input.value.trim().toLowerCase();
       let visibleCount = 0;
+      let totalVisible = 0;
 
       for (let i = 1; i < rows.length; i++) {
         const numberCell = rows[i].cells[0];
@@ -452,19 +432,23 @@
         const number = numberCell.textContent.toLowerCase();
         const title = titleCell.textContent.toLowerCase();
 
+        // 검색어 포함 여부 확인 (두산 숫자 또는 리액션 이름)
         if (keyword === '' || number.includes(keyword) || title.includes(keyword)) {
           rows[i].style.display = '';
-          visibleCount++;
+          totalVisible++;
         } else {
           rows[i].style.display = 'none';
         }
       }
-
-      const total = rows.length - 1;
-      setCount(total, visibleCount, keyword);
+      
+      // 개수 표시 업데이트
+      if(keyword === '') {
+          updateCount();
+      } else {
+          countText.textContent = `검색 결과 ${totalVisible}개`;
+      }
     }
 
-    setCount(rows.length - 1, rows.length - 1, '');
     input.addEventListener('input', filterSongs);
   </script>
 </body>
