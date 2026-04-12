@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>유주현♡ 갠방 시그 목록</title>
+  <style>
+    :root{
+      /* 밤하늘 테마 변수 */
+      --bg-dark: #0b0e14;
+      --nav-blue: #1a2a6c;
+      --deep-purple: #2a0845;
+      --card-glass: rgba(255, 255, 255, 0.07);
+      --line-glass: rgba(255, 255, 255, 0.12);
+      --text-main: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent-star: #fef3c7; /* 별빛 색상 */
+      --accent-glow: #38bdf8; /* 네온 블루 포인트 */
+      --shadow: 0 14px 40px rgba(0, 0, 0, 0.5);
+      --radius: 20px;
+    }
+
+    * { box-sizing: border-box; }
+    body{
+      margin:0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, "Noto Sans KR", sans-serif;
+      color: var(--text-main);
+      /* 밤하늘 그라데이션 배경 */
+      background: linear-gradient(135deg, #0b0e14 0%, #1a2a6c 50%, #2a0845 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+      padding: 48px 16px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* 배경 별빛 효과 (가상 요소) */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: 
+        radial-gradient(1px 1px at 20px 30px, #fff, rgba(0,0,0,0)),
+        radial-gradient(1.5px 1.5px at 100px 150px, #fff, rgba(0,0,0,0)),
+        radial-gradient(1px 1px at 250px 350px, rgba(255,255,255,0.8), rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 450px 100px, #fff, rgba(0,0,0,0));
+      background-repeat: repeat;
+      background-size: 600px 600px;
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    .wrap{
+      max-width: 860px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .card{
+      background: var(--card-glass);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--line-glass);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .header{
+      padding: 26px 26px 18px;
+      border-bottom: 1px solid var(--line-glass);
+      display: grid;
+      gap: 12px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 16px;
+    }
+
+    .brand img{
+      width: 120px;
+      height: auto;
+      display:block;
+      border-radius: 14px;
+      border: 1px solid var(--line-glass);
+      background: rgba(255,255,255,0.1);
+    }
+
+    h1{
+      margin: 0;
+      font-size: 24px;
+      letter-spacing: -0.5px;
+      color: #fff;
+      line-height: 1.25;
+      text-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+    }
+
+    .sub{
+      margin: 6px 0 0;
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+
+    .toolbar{
+      margin-top: 10px;
+    }
+
+    .search{
+      position: relative;
+    }
+
+    .search input{
+      width: 100%;
+      padding: 14px 14px 14px 44px;
+      border-radius: 16px;
+      border: 1px solid var(--line-glass);
+      outline: none;
+      font-size: 15px;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.2);
+      transition: 0.2s ease;
+    }
+
+    .search input:focus{
+      border-color: var(--accent-glow);
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.15);
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .search svg{
+      position:absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      color: var(--accent-glow);
+      pointer-events:none;
+    }
+
+    .content{
+      padding: 20px 26px 26px;
+      display:grid;
+      gap: 14px;
+    }
+
+    .meta{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    .table-wrap{
+      border: 1px solid var(--line-glass);
+      border-radius: 18px;
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .table-scroll{
+      max-height: 550px;
+      overflow: auto;
+    }
+
+    table{
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 14.5px;
+    }
+
+    thead th{
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      background: rgba(26, 42, 108, 0.9);
+      color: #fff;
+      text-align: left;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line-glass);
+      font-weight: 700;
+    }
+
+    tbody td{
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--line-glass);
+      color: var(--text-main);
+    }
+
+    tbody tr:nth-child(even) td{
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    tbody tr:hover td{
+      background: rgba(56, 189, 248, 0.08);
+    }
+
+    td.num{
+      width: 100px;
+      color: var(--accent-glow);
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .footer{
+      padding: 16px 26px;
+      border-top: 1px solid var(--line-glass);
+      background: rgba(0, 0, 0, 0.2);
+      color: var(--text-muted);
+      font-size: 12.5px;
+      display:flex;
+      justify-content: space-between;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      color: var(--accent-glow);
+      font-size: 12.5px;
+      font-weight: 600;
+    }
+
+    .table-scroll::-webkit-scrollbar{ width: 8px; height: 8px; }
+    .table-scroll::-webkit-scrollbar-thumb{
+      background: var(--line-glass);
+      border-radius: 999px;
+    }
+    .table-scroll::-webkit-scrollbar-track{ background: transparent; }
+
+    @media (max-width: 520px){
+      .brand img{ width: 90px; }
+      td.num{ width: 80px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="header">
+        <div class="brand">
+          <img src="https://ogq-sticker-global-cdn-z01.sooplive.com/sticker/625b46120687f/5_240.png" alt="로고" />
+          <div>
+            <h1>유주현♡ 시그 목록 (Midnight) ✨</h1>
+            <p class="sub">신비로운 밤하늘 테마로 목록이 업데이트 되었습니다.</p>
+          </div>
+        </div>
+
+        <div class="toolbar">
+          <div class="search">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M16.2 16.2 21 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+            <input type="text" id="searchInput" placeholder="시그 번호 또는 제목으로 검색..." autocomplete="off" />
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="meta">
+          <span id="countText" class="badge">총 0개의 항목</span>
+          <span>Tip: 별빛처럼 빛나는 시그를 찾아보세요!</span>
+        </div>
+
+        <div class="table-wrap">
+          <div class="table-scroll">
+            <table id="songTable">
+              <thead>
+                <tr>
+                  <th>번호</th>
+                  <th>제목</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td class="num">102</td><td>Whistle</td></tr>
+                <tr><td class="num">104</td><td>무아</td></tr>
+                <tr><td class="num">105</td><td>레디올낫</td></tr>
+                <tr><td class="num">108</td><td>색소폰매직</td></tr>
+                <tr><td class="num">122</td><td>진압해</td></tr>
+                <tr><td class="num">125</td><td>힙합보단사랑 사랑보단 돈</td></tr>
+                <tr><td class="num">134</td><td>블루바렌타인</td></tr>
+                <tr><td class="num">144</td><td>404</td></tr>
+                <tr><td class="num">148</td><td>나랑사귈래</td></tr>
+                <tr><td class="num">153</td><td>Spaghetti</td></tr>
+                <tr><td class="num">155</td><td>솜사탕</td></tr>
+                <tr><td class="num">158</td><td>오빠달려</td></tr>
+                <tr><td class="num">159</td><td>쩔어</td></tr>
+                <tr><td class="num">161</td><td>Overdrive</td></tr>
+                <tr><td class="num">181</td><td>Swing</td></tr>
+                <tr><td class="num">182</td><td>귀여워서미안해</td></tr>
+                <tr><td class="num">185</td><td>왠지</td></tr>
+                <tr><td class="num">189</td><td>새끈빠끈</td></tr>
+                <tr><td class="num">191</td><td>핑크레이디</td></tr>
+                <tr><td class="num">195</td><td>핫해</td></tr>
+                <tr><td class="num">200</td><td>BATIDAO</td></tr>
+                <tr><td class="num">202</td><td>거짓말</td></tr>
+                <tr><td class="num">214</td><td>아웅다웅</td></tr>
+                <tr><td class="num">216</td><td>Where U At</td></tr>
+                <tr><td class="num">217</td><td>셔플</td></tr>
+                <tr><td class="num">222</td><td>위플래시</td></tr>
+                <tr><td class="num">223</td><td>뱅뱅</td></tr>
+                <tr><td class="num">229</td><td>이쿠욧</td></tr>
+                <tr><td class="num">241</td><td>다섯번째계절</td></tr>
+                <tr><td class="num">242</td><td>우유</td></tr>
+                <tr><td class="num">246</td><td>LikeJennie</td></tr>
+                <tr><td class="num">258</td><td>오빠바이러스</td></tr>
+                <tr><td class="num">261</td><td>블랙홀</td></tr>
+                <tr><td class="num">262</td><td>간바레센빠이</td></tr>
+                <tr><td class="num">264</td><td>아헤가오</td></tr>
+                <tr><td class="num">266</td><td>Rude</td></tr>
+                <tr><td class="num">269</td><td>센세</td></tr>
+                <tr><td class="num">281</td><td>종소리</td></tr>
+                <tr><td class="num">282</td><td>Chanel</td></tr>
+                <tr><td class="num">288</td><td>Begin</td></tr>
+                <tr><td class="num">294</td><td>호루라기</td></tr>
+                <tr><td class="num">300</td><td>너라면좋겠어</td></tr>
+                <tr><td class="num">313</td><td>너와의모든지금</td></tr>
+                <tr><td class="num">323</td><td>섹시보단 야한</td></tr>
+                <tr><td class="num">333</td><td>오빠하앙</td></tr>
+                <tr><td class="num">335</td><td>BMi</td></tr>
+                <tr><td class="num">344</td><td>Good bye</td></tr>
+                <tr><td class="num">353</td><td>인더클럽</td></tr>
+                <tr><td class="num">355</td><td>음매야옹크레센도</td></tr>
+                <tr><td class="num">369</td><td>엉덩이가큰그녀</td></tr>
+                <tr><td class="num">377</td><td>잭슨</td></tr>
+                <tr><td class="num">383</td><td>헨타이</td></tr>
+                <tr><td class="num">387</td><td>밍이가알려줄게</td></tr>
+                <tr><td class="num">433</td><td>바닥드라군</td></tr>
+                <tr><td class="num">444</td><td>터미널</td></tr>
+                <tr><td class="num">455</td><td>EDM</td></tr>
+                <tr><td class="num">464</td><td>바우치</td></tr>
+                <tr><td class="num">477</td><td>방망이드라군</td></tr>
+                <tr><td class="num">488</td><td>홈스윗홈</td></tr>
+                <tr><td class="num">499</td><td>욕로투</td></tr>
+                <tr><td class="num">500</td><td>안대리액션</td></tr>
+                <tr><td class="num">522</td><td>더하이스트</td></tr>
+                <tr><td class="num">544</td><td>HMG</td></tr>
+                <tr><td class="num">550</td><td>호미들</td></tr>
+                <tr><td class="num">576</td><td>모또모또</td></tr>
+                <tr><td class="num">777</td><td>피리</td></tr>
+                <tr><td class="num">887</td><td>살아있네</td></tr>
+                <tr><td class="num">888</td><td>파파파</td></tr>
+                <tr><td class="num">899</td><td>계엄령</td></tr>
+                <tr><td class="num">992</td><td>개굴</td></tr>
+                <tr><td class="num">1000</td><td>폭격기</td></tr>
+                <tr><td class="num">1004</td><td>천사래</td></tr>
+                <tr><td class="num">1009</td><td>철민</td></tr>
+                <tr><td class="num">1014</td><td>감나무</td></tr>
+                <tr><td class="num">1039</td><td>온더그라운드</td></tr>
+                <tr><td class="num">1047</td><td>Booty Loose</td></tr>
+                <tr><td class="num">1066</td><td>Heart</td></tr>
+                <tr><td class="num">1069</td><td>골읍</td></tr>
+                <tr><td class="num">1072</td><td>마티니</td></tr>
+                <tr><td class="num">1078</td><td>철빡이</td></tr>
+                <tr><td class="num">1099</td><td>Lamborghini</td></tr>
+                <tr><td class="num">1101</td><td>ATMOSPHERE</td></tr>
+                <tr><td class="num">1111</td><td>만개화</td></tr>
+                <tr><td class="num">1147</td><td>분수쇼</td></tr>
+                <tr><td class="num">1158</td><td>슈퍼이쿠욧</td></tr>
+                <tr><td class="num">1188</td><td>임맨</td></tr>
+                <tr><td class="num">1234</td><td>슈퍼아헤가오</td></tr>
+                <tr><td class="num">1280</td><td>슈퍼뻐킹뱅어</td></tr>
+                <tr><td class="num">1444</td><td>세비지</td></tr>
+                <tr><td class="num">1500</td><td>댄스 완곡</td></tr>
+                <tr><td class="num">1519</td><td>Rewrite Star</td></tr>
+                <tr><td class="num">1676</td><td>피카츄69</td></tr>
+                <tr><td class="num">1696</td><td>식스나인^^</td></tr>
+                <tr><td class="num">1777</td><td>STARWALKIN</td></tr>
+                <tr><td class="num">2000</td><td>마녀키키</td></tr>
+                <tr><td class="num">2222</td><td>레이즈업</td></tr>
+                <tr><td class="num">2444</td><td>큰세멘</td></tr>
+                <tr><td class="num">2777</td><td>필라노이드</td></tr>
+                <tr><td class="num">2998</td><td>조로개</td></tr>
+                <tr><td class="num">2999</td><td>큰예맨</td></tr>
+                <tr><td class="num">532</td><td>야왕 (갠방)</td></tr>
+                <tr><td class="num">574</td><td>우리키마 (갠방)</td></tr>
+                <tr><td class="num">606</td><td>작은Lord (갠방)</td></tr>
+                <tr><td class="num">816</td><td>작은삔스 (갠방)</td></tr>
+                <tr><td class="num">1003</td><td>냥이강쥐조아 (갠방)</td></tr>
+                <tr><td class="num">1005</td><td>도한 (갠방)</td></tr>
+                <tr><td class="num">1020</td><td>작은조조 (갠방)</td></tr>
+                <tr><td class="num">1043</td><td>폴라포도 (갠방)</td></tr>
+                <tr><td class="num">1051</td><td>방법 (갠방)</td></tr>
+                <tr><td class="num">1052</td><td>JS2 (갠방)</td></tr>
+                <tr><td class="num">1074</td><td>아키마 (갠방)</td></tr>
+                <tr><td class="num">1077</td><td>Atakin777 (갠방)</td></tr>
+                <tr><td class="num">1089</td><td>지금함뜨자! (갠방)</td></tr>
+                <tr><td class="num">1119</td><td>슈퍼알파롤로 (갠방)</td></tr>
+                <tr><td class="num">1135</td><td>Summer.G (갠방)</td></tr>
+                <tr><td class="num">1162</td><td>Lord (갠방)</td></tr>
+                <tr><td class="num">1170</td><td>최코 (갠방)</td></tr>
+                <tr><td class="num">1226</td><td>삔스 (갠방)</td></tr>
+                <tr><td class="num">1245</td><td>냥이강쥐조아2 (갠방)</td></tr>
+                <tr><td class="num">1289</td><td>Me낼름 (갠방)</td></tr>
+                <tr><td class="num">1333</td><td>부르겐 (갠방)</td></tr>
+                <tr><td class="num">1559</td><td>작은일톤 (갠방)</td></tr>
+                <tr><td class="num">1575</td><td>겨밥철 (갠방)</td></tr>
+                <tr><td class="num">1697</td><td>불깨츄 (갠방)</td></tr>
+                <tr><td class="num">1892</td><td>지금함뜨자!! (갠방)</td></tr>
+                <tr><td class="num">2016</td><td>큰Lord (갠방)</td></tr>
+                <tr><td class="num">2020</td><td>조조 (갠방)</td></tr>
+                <tr><td class="num">2089</td><td>슈퍼지금함뜨자! (갠방)</td></tr>
+                <tr><td class="num">2157</td><td>슈퍼냥강쥐 (갠방)</td></tr>
+                <tr><td class="num">2523</td><td>슈퍼삔스 (갠방)</td></tr>
+                <tr><td class="num">2559</td><td>큰일톤 (갠방)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <span>© 유주현♡ 🌌</span>
+        <span>Dreamy Midnight Collection</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const input = document.getElementById('searchInput');
+    const table = document.getElementById('songTable');
+    const rows = table.getElementsByTagName('tr');
+    const countText = document.getElementById('countText');
+
+    function setCount(total, visible, keyword) {
+      if (!keyword) {
+        countText.textContent = `총 ${total}개의 항목`;
+      } else {
+        countText.textContent = `검색 결과 ${visible}개 / 총 ${total}개`;
+      }
+    }
+
+    function filterSongs() {
+      const keyword = input.value.trim().toLowerCase();
+      let visibleCount = 0;
+
+      for (let i = 1; i < rows.length; i++) {
+        const numberCell = rows[i].cells[0];
+        const titleCell = rows[i].cells[1];
+        if (!numberCell || !titleCell) continue;
+
+        const number = numberCell.textContent.toLowerCase();
+        const title = titleCell.textContent.toLowerCase();
+
+        if (keyword === '' || number.includes(keyword) || title.includes(keyword)) {
+          rows[i].style.display = '';
+          visibleCount++;
+        } else {
+          rows[i].style.display = 'none';
+        }
+      }
+
+      const total = rows.length - 1;
+      setCount(total, visibleCount, keyword);
+    }
+
+    setCount(rows.length - 1, rows.length - 1, '');
+    input.addEventListener('input', filterSongs);
+  </script>
+</body>
+</html>
