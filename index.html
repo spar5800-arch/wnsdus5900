@@ -5,18 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>유주현♡ 시그 이미지 검색기</title>
   <style>
-    :root {
-      /* 화사하고 세련된 인스타/방송 감성 라이트 그레이 테마 */
-      --bg1: #f4f6f9; /* 전체 배경 (화사한 연회색) */
-      --bg2: #ffffff; /* 헤더 및 카드 내부 배경 */
-      --card: #ffffff; /* 카드 배경 */
-      --line: #e2e8f0; /* 깔끔하고 연한 테두리선 */
-      --text: #1e293b; /* 메인 글자색 (또렷한 딥 그레이) */
-      --muted: #64748b; /* 보조 글자색 */
-      --accent: #ec4899; /* 하트 및 포인트 컬러 (사랑스러운 핑크) */
-      --accent-bg: #fdf2f8; /* 포인트 배경 */
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.06); /* 부드럽고 가벼운 그림자 */
-      --radius: 20px;
+     :root{
+      /* 하늘색 테마 변수 */
+      --bg1:#f0f9ff;
+      --bg2:#e0f2fe;
+      --card:#ffffff;
+      --line:#bae6fd;
+      --text:#0c4a6e;
+      --muted:#7dd3fc;
+      --accent:#0284c7; /* 메인 하늘색 */
+      --accent2:#38bdf8;
+      --shadow: 0 14px 40px rgba(2, 132, 199, 0.12);
+      --radius: 18px;
     }
 
     * { box-sizing: border-box; }
@@ -42,13 +42,11 @@
       border: 1px solid var(--line);
     }
 
-    .header {
-      padding: 35px 30px;
-      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-      border-bottom: 1px solid var(--line);
-      display: flex;
-      align-items: center;
-      gap: 24px;
+    .header{
+      padding: 22px 22px 14px;
+      border-bottom: 2px solid var(--bg2);
+      display: grid;
+      gap: 12px;
     }
 
     .brand img {
