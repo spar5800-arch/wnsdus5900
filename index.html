@@ -6,19 +6,19 @@
   <title>유주현♡ 시그 이미지 검색기</title>
   <style>
     :root {
-      /* 모던 다크 그레이 테마 변수 */
-      --bg1: #171717; /* 전체 배경 (깊은 다크 그레이) */
-      --bg2: #262626; /* 헤더/푸터 배경 */
-      --card: #1f1f1f; /* 카드 배경 */
-      --line: #333333; /* 테두리 및 구분선 */
-      --text: #e5e5e5; /* 밝은 회색 글자색 */
-      --muted: #a3a3a3; /* 보조 글자색 */
-      --accent: #ffffff; /* 메인 포인트 (순백색) */
-      --accent2: #737373; /* 검색창 포커스 테두리 */
-      --shadow: 0 14px 40px rgba(0, 0, 0, 0.7); /* 깊이감 있는 어두운 그림자 */
-      --radius: 18px;
+      /* 화사하고 세련된 인스타/방송 감성 라이트 그레이 테마 */
+      --bg1: #f4f6f9; /* 전체 배경 (화사한 연회색) */
+      --bg2: #ffffff; /* 헤더 및 카드 내부 배경 */
+      --card: #ffffff; /* 카드 배경 */
+      --line: #e2e8f0; /* 깔끔하고 연한 테두리선 */
+      --text: #1e293b; /* 메인 글자색 (또렷한 딥 그레이) */
+      --muted: #64748b; /* 보조 글자색 */
+      --accent: #ec4899; /* 하트 및 포인트 컬러 (사랑스러운 핑크) */
+      --accent-bg: #fdf2f8; /* 포인트 배경 */
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.06); /* 부드럽고 가벼운 그림자 */
+      --radius: 20px;
     }
-    
+
     * { box-sizing: border-box; }
     body {
       margin: 0;
@@ -42,22 +42,22 @@
       border: 1px solid var(--line);
     }
 
-   .header {
-      padding: 30px;
-      background: linear-gradient(135deg, #2e2e2e 0%, var(--bg1) 100%);
+    .header {
+      padding: 35px 30px;
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
       border-bottom: 1px solid var(--line);
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 24px;
     }
 
     .brand img {
-      width: 100px;
-      height: 100px;
+      width: 90px;
+      height: 90px;
       display: block;
       border-radius: 50%;
-      border: 2px solid #475569;
-      box-shadow: 0 0 15px rgba(248, 250, 252, 0.15); /* 은은한 별빛 후광 효과 */
+      border: 3px solid #ffffff;
+      box-shadow: 0 4px 12px rgba(236, 72, 153, 0.15); /* 핑크빛 화사한 후광 */
       object-fit: cover;
     }
 
@@ -66,8 +66,7 @@
       font-size: 26px;
       font-weight: 800;
       color: var(--text);
-      letter-spacing: -1px;
-      text-shadow: 0 2px 10px rgba(255, 255, 255, 0.2); /* 글자 주변 은은한 빛번짐 */
+      letter-spacing: -0.5px;
     }
 
     .header-text h1 span {
@@ -85,29 +84,29 @@
 
     .search input {
       width: 100%;
-      padding: 12px 12px 12px 40px;
-      border-radius: 12px;
+      padding: 14px 14px 14px 44px;
+      border-radius: 14px;
       border: 1px solid var(--line);
       outline: none;
-      font-size: 14px;
+      font-size: 15px;
       color: var(--text);
       background-color: var(--bg1);
       transition: all 0.2s ease;
     }
 
     .search input:focus {
-      border-color: var(--accent2);
-      background-color: #0f1219;
-      box-shadow: 0 0 0 3px rgba(203, 213, 225, 0.15);
+      border-color: var(--accent);
+      background-color: #ffffff;
+      box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.1);
     }
 
     .search input::placeholder {
-      color: #64748b;
+      color: #94a3b8;
     }
 
     .search svg {
       position: absolute;
-      left: 12px;
+      left: 14px;
       top: 50%;
       transform: translateY(-50%);
       width: 18px;
@@ -128,14 +127,14 @@
       justify-content: space-between;
       color: var(--muted);
       font-size: 13px;
-      padding-top: 10px;
+      padding-top: 5px;
     }
 
     .table-wrap {
       border: 1px solid var(--line);
-      border-radius: 15px;
+      border-radius: 16px;
       overflow: hidden;
-      background-color: var(--card);
+      background-color: var(--bg2);
     }
 
     .table-scroll {
@@ -153,16 +152,16 @@
       position: sticky;
       top: 0;
       z-index: 2;
-      background-color: var(--bg2);
-      color: var(--accent);
+      background-color: #f8fafc;
+      color: var(--text);
       text-align: left;
-      padding: 12px 15px;
+      padding: 14px 20px;
       border-bottom: 2px solid var(--line);
       font-weight: 700;
     }
 
     tbody td {
-      padding: 10px 15px;
+      padding: 12px 20px;
       border-bottom: 1px solid var(--line);
       color: var(--text);
       vertical-align: middle;
@@ -172,40 +171,30 @@
       border-bottom: none;
     }
 
-    tbody tr:nth-child(even) {
-      background-color: rgba(255, 255, 255, 0.02); /* 아주 은은한 밝기 차이 */
-    }
-
     tbody tr:hover td {
-      background-color: rgba(255, 255, 255, 0.05); /* 마우스 올렸을 때 하이라이트 */
+      background-color: #f8fafc; /* 마우스 올렸을 때 은은한 하이라이트 */
     }
 
     td.num {
-      width: 100px;
+      width: 120px;
       color: var(--accent);
-      font-weight: 800;
-      font-size: 16px;
+      font-weight: 700;
+      font-size: 15px;
       font-variant-numeric: tabular-nums;
     }
 
     .img-cell img {
-      max-width: 150px;
-      max-height: 80px;
+      max-width: 140px;
+      max-height: 70px;
       object-fit: contain;
-      border-radius: 8px;
+      border-radius: 6px;
       display: block;
     }
 
-    .no-img {
-      color: #475569;
-      font-style: italic;
-      font-size: 12px;
-    }
-
     .footer {
-      padding: 15px 30px;
+      padding: 20px 30px;
       border-top: 1px solid var(--line);
-      background-color: var(--bg2);
+      background-color: #f8fafc;
       color: var(--muted);
       font-size: 12px;
       text-align: center;
@@ -215,24 +204,24 @@
     .badge {
       display: inline-flex;
       align-items: center;
-      padding: 5px 10px;
+      padding: 6px 12px;
       border-radius: 20px;
-      background-color: rgba(255, 255, 255, 0.05);
+      background-color: var(--accent-bg);
       color: var(--accent);
       font-size: 12px;
       font-weight: 700;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(236, 72, 153, 0.2);
     }
 
     .table-scroll::-webkit-scrollbar { width: 6px; }
     .table-scroll::-webkit-scrollbar-thumb {
-      background: #475569;
+      background: #cbd5e1;
       border-radius: 3px;
     }
     .table-scroll::-webkit-scrollbar-track { background: transparent; }
 
     @media (max-width: 600px) {
-      .header { flex-direction: column; text-align: center; padding: 20px; }
+      .header { flex-direction: column; text-align: center; padding: 25px 20px; }
       .brand img { width: 80px; height: 80px; }
       .header-text h1 { font-size: 22px; }
       .content { padding: 0 15px 20px; }
@@ -258,7 +247,7 @@
             <path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="1.8"/>
             <path d="M16.2 16.2 21 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
           </svg>
-          <input type="text" id="searchInput" placeholder="개수 검색..." autocomplete="off" />
+          <input type="text" id="searchInput" placeholder="개수 검색 (예: 1004)" autocomplete="off" />
         </div>
       </div>
 
@@ -278,6 +267,7 @@
                 </tr>
               </thead>
               <tbody>
+                <!-- 기존 데이터 유지 -->
                 <tr><td class="num">508</td><td class="img-cell"><img src="https://sig.cnine.kr/signature/20260328/c4825df37c964a549914c62a06c71791.gif" loading="lazy"></td></tr>
                 <tr><td class="num">509</td><td class="img-cell"><img src="https://sig.cnine.kr/signature/20260328/6e564e2cd5e74d918f1b3bf703997513.png" loading="lazy"></td></tr>
                 <tr><td class="num">606</td><td class="img-cell"><img src="https://uyqziawjqlrqjkwsjnji.supabase.co/storage/v1/object/public/Sig/6062.gif" loading="lazy"></td></tr>
